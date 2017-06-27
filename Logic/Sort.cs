@@ -13,7 +13,7 @@ namespace Logic
         /// <param name="array">array of int values</param>
         public static void QuickSort(int[] array)
         {
-            QuickSortHelper(array, 0, array.Length - 1);
+            QuickSortHelper(array, 0, array.Length - 1); 
         }
 
         /// <summary>
@@ -24,9 +24,9 @@ namespace Logic
         /// <param name="right">the most right element in subarray</param>
         private static void QuickSortHelper(int[] array, int left, int right)
         {
-            if (right == left) return;
+            if (right <= left) return;
             int pivot = Part(array, left, right);
-            QuickSortHelper(array, left, pivot); ////????????????
+            QuickSortHelper(array, left, pivot - 1); ////????????????
             QuickSortHelper(array, pivot + 1, right);
         }
 
@@ -41,7 +41,7 @@ namespace Logic
         {
             //it will be divider into 2 subarrays
             int divider = left;
-
+            
             //choose a pivot (an element in a middle of the array)
             int pivotindex = left + (right - left) / 2;
             int pivot = array[pivotindex];
