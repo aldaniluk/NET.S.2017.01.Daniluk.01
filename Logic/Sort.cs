@@ -1,22 +1,74 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logic
 {
+    /// <summary>
+    /// Class is created for sorting int arrays
+    /// </summary>
     public static class Sort
     {
+        /// <summary>
+        /// Sorting int arrays using Quick Sort
+        /// </summary>
+        /// <param name="array">array of int values</param>
         public static void QuickSort(int[] array)
         {
-
+            QuickSortHelper(array, 0, array.Length - 1);
         }
 
+        private static void QuickSortHelper(int[] array, int left, int right)
+        {
+            if (right == left) return;
+            int pivot = Part(array, left, right);
+            QuickSortHelper(array, left, pivot);
+            QuickSortHelper(array, pivot + 1, right);
+        }
+
+        private static int Part(int[] array, int left, int right)
+        {
+            //it will be divider into 2 subarrays
+            int divider = left;
+
+            //choose a pivot (an element in a middle of the array)
+            int pivotindex = left + (right - left) / 2;
+            int pivot = array[pivotindex];
+            Swap(array, pivotindex, right); //put a pivot in the end of the array
+
+            for(int i = left; i <= right; i++)
+            {
+                if(array[i] < pivot)
+                {
+                    Swap(array, i, divider++);
+                }
+            }
+            Swap(array, divider, right);
+            return divider;
+        }
+
+        private static void Swap(int[] array, int a, int b)
+        {
+            int temp = array[a];
+            array[a] = array[b];
+            array[b] = temp;
+        }
+
+
+
+        /// <summary>
+        /// Sorting int arrays using Merge Sort
+        /// </summary>
+        /// <param name="array">array of int values</param>
         public static void MergeSort(int[] array)
         {
             Divide(array, 0, array.Length - 1);
         }
+
+        /// <summary>
+        /// Auxiliary method for MergeSort. It divides an array.
+        /// </summary>
+        /// <param name="array">array of int values</param>
+        /// <param name="left">the most left element in subarray</param>
+        /// <param name="right">the most right element in subarray</param>
         private static void Divide(int[] array, int left, int right)
         {
             if (right.CompareTo(left) == 0) return;
@@ -25,6 +77,14 @@ namespace Logic
             Divide(array, middle + 1, right);
             Merge(array, left, middle, right);
         }
+
+        /// <summary>
+        /// Auxiliary method for MergeSort. It merges two subarrays into one.
+        /// </summary>
+        /// <param name="array">array of int values</param>
+        /// <param name="left">the most left element in subarray</param>
+        /// <param name="middle">the middle element in subarray</param>
+        /// <param name="right">the most right element in subarray</param>
         private static void Merge(int[] array, int left, int middle, int right)
         {
             int positionL = left;
