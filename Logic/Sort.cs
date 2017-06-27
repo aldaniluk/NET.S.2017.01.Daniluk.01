@@ -16,14 +16,27 @@ namespace Logic
             QuickSortHelper(array, 0, array.Length - 1);
         }
 
+        /// <summary>
+        /// Helper private method for QuickSort. 
+        /// </summary>
+        /// <param name="array">array of int values</param>
+        /// <param name="left">the most left element in subarray</param>
+        /// <param name="right">the most right element in subarray</param>
         private static void QuickSortHelper(int[] array, int left, int right)
         {
             if (right == left) return;
             int pivot = Part(array, left, right);
-            QuickSortHelper(array, left, pivot);
+            QuickSortHelper(array, left, pivot); ////????????????
             QuickSortHelper(array, pivot + 1, right);
         }
 
+        /// <summary>
+        /// Helper method for QuickSort. It divides the array into 2 subarrays and all items smaller than a pivot put into the left, others - into the right 
+        /// </summary>
+        /// <param name="array">array of int values</param>
+        /// <param name="left">the most left element in subarray</param>
+        /// <param name="right">the most right element in subarray</param>
+        /// <returns>an index of a pivot</returns>
         private static int Part(int[] array, int left, int right)
         {
             //it will be divider into 2 subarrays
@@ -45,6 +58,12 @@ namespace Logic
             return divider;
         }
 
+        /// <summary>
+        /// Helper method for QuickSort. It swaps two elements one with other.
+        /// </summary>
+        /// <param name="array">array of int values</param>
+        /// <param name="a">one int value to swap</param>
+        /// <param name="b">other int value to swap</param>
         private static void Swap(int[] array, int a, int b)
         {
             int temp = array[a];
