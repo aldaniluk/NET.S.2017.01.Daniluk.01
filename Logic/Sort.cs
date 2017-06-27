@@ -26,12 +26,13 @@ namespace Logic
         {
             if (right <= left) return;
             int pivot = Part(array, left, right);
-            QuickSortHelper(array, left, pivot - 1); ////????????????
+            QuickSortHelper(array, left, pivot - 1);
             QuickSortHelper(array, pivot + 1, right);
         }
 
         /// <summary>
-        /// Helper method for QuickSort. It divides the array into 2 subarrays and all items smaller than a pivot put into the left, others - into the right 
+        /// Helper method for QuickSort. It divides the array into 2 subarrays and all items 
+        /// smaller than a pivot put into the left, others - into the right 
         /// </summary>
         /// <param name="array">array of int values</param>
         /// <param name="left">the most left element in subarray</param>

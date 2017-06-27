@@ -21,15 +21,12 @@ namespace ConsoleUI
             
             Console.WriteLine();
 
-            int[] arr2 = new int[] { 4, 5, 1, 8, 10, 2 };
             int[] arr1 = new int[] { 4, 5, 1, 6, 7, 2, 3 };
+            int[] arr2 = new int[] { 4, 5, 1, 8, 10, 2 };
+            int[] arr3 = new int[] { 5, 4, 7, 1, 7, 1 };
             //quick sort
-            Sort.QuickSort(arr1);
-            //for (int i = 0; i < arr1.Length; i++)
-            //{
-            //    Console.Write(arr1[i] + " ");
-            //}
-            Array.ForEach(arr1, i => Console.Write(i+ " "));
+            Sort.QuickSort(arr3);
+            Array.ForEach(arr3, i => Console.Write(i+ " "));
         }
     }
 }
