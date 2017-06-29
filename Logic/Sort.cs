@@ -7,15 +7,31 @@ namespace Logic
     /// </summary>
     public static class Sort
     {
+        #region QuickSort (public)
         /// <summary>
         /// Sorting int arrays using Quick Sort
         /// </summary>
         /// <param name="array">array of int values</param>
         public static void QuickSort(int[] array)
         {
+            ArrayChecker(array);
             QuickSortHelper(array, 0, array.Length - 1); 
         }
+        #endregion
 
+        #region MergeSort (public)
+        /// <summary>
+        /// Sorting int arrays using Merge Sort
+        /// </summary>
+        /// <param name="array">array of int values</param>
+        public static void MergeSort(int[] array)
+        {
+            ArrayChecker(array);
+            Divide(array, 0, array.Length - 1);
+        }
+        #endregion
+
+        #region QuickSort Helpers (private)
         /// <summary>
         /// Helper private method for QuickSort. 
         /// </summary>
@@ -71,18 +87,9 @@ namespace Logic
             array[a] = array[b];
             array[b] = temp;
         }
+        #endregion
 
-
-
-        /// <summary>
-        /// Sorting int arrays using Merge Sort
-        /// </summary>
-        /// <param name="array">array of int values</param>
-        public static void MergeSort(int[] array)
-        {
-            Divide(array, 0, array.Length - 1);
-        }
-
+        #region MergeSort Helpers (private)
         /// <summary>
         /// Auxiliary method for MergeSort. It divides an array.
         /// </summary>
@@ -136,5 +143,24 @@ namespace Logic
             }
             return;
         }
+        #endregion
+
+        #region ArrayChecker
+        /// <summary>
+        /// Checker for an input array.
+        /// </summary>
+        /// <param name="array">array of int values</param>
+        public static void ArrayChecker(int[] array)
+        {
+            if(array == null)
+            {
+                throw new ArgumentNullException("Array is null.");
+            }
+            if(array.Length == 0)
+            {
+                throw new ArgumentException("Array is empty.");
+            }
+        }
+        #endregion
     }
 }

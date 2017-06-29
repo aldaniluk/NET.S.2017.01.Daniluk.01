@@ -11,22 +11,22 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            int[] arr = new int[] { 4, 5, 1, 8, 10, 2 };
+            int[] arr1 = new int[] { 1, 5, 3, 8 };
+            int[] arr2 = new int[] { 9, 3, 6, 1, 5, 2, 3, 7 };
+            int[] arr3 = new int[] { };
+            int[] arr4 = null;
+
+
             //merge sort
-            Sort.MergeSort(arr);
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write(arr[i] + " ");
-            }
-            
+            Sort.MergeSort(arr1);
+            Array.ForEach(arr1, i => Console.Write(i + " "));
+
             Console.WriteLine();
 
-            int[] arr1 = new int[] { 4, 5, 1, 6, 7, 2, 3 };
-            int[] arr2 = new int[] { 4, 5, 1, 8, 10, 2 };
-            int[] arr3 = new int[] { 5, 4, 7, 1, 7, 1 };
+            
             //quick sort
-            Sort.QuickSort(arr3);
-            Array.ForEach(arr3, i => Console.Write(i+ " "));
+            Sort.QuickSort(arr2);
+            Array.ForEach(arr2, i => Console.Write(i+ " "));
         }
     }
 }
