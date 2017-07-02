@@ -1,4 +1,14 @@
 ﻿using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//Открытый ключ(алгоритм хэширования: sha1):
+//0024000004800000940000000602000000240000525341310004000001000100fbb6bcfabc8208
+//02f5696582ce9d8df105e7a0aa2698250a09f7675f55f9fdcd453195c8c088b793685a4998784a
+//e2ba0fa79739ba3f3b5f0c61cc0eea75424d4153d2e64158318c21620d13b9af42c901161fecd1
+//fc48ec547a004c85e470e8f233782e03205e4ca4ebfc527ad81b81943eb2ceae07ec11aa8307f3
+//10dc5bbb
+//Токен открытого ключа: f6ade7453c7f4178
 
 namespace Logic
 {
@@ -31,14 +41,14 @@ namespace Logic
         }
         #endregion
 
-        #region QuickSort Helpers (private)
+        #region QuickSort Helpers (internal)
         /// <summary>
         /// Helper private method for QuickSort. 
         /// </summary>
         /// <param name="array">array of int values</param>
         /// <param name="left">the most left element in subarray</param>
         /// <param name="right">the most right element in subarray</param>
-        private static void QuickSortHelper(int[] array, int left, int right)
+        internal static void QuickSortHelper(int[] array, int left, int right)
         {
             if (right <= left) return;
             int pivot = Part(array, left, right);
@@ -54,7 +64,7 @@ namespace Logic
         /// <param name="left">the most left element in subarray</param>
         /// <param name="right">the most right element in subarray</param>
         /// <returns>an index of a pivot</returns>
-        private static int Part(int[] array, int left, int right)
+        internal static int Part(int[] array, int left, int right)
         {
             //it will be divider into 2 subarrays
             int divider = left;
@@ -81,7 +91,7 @@ namespace Logic
         /// <param name="array">array of int values</param>
         /// <param name="a">one int value to swap</param>
         /// <param name="b">other int value to swap</param>
-        private static void Swap(int[] array, int a, int b)
+        internal static void Swap(int[] array, int a, int b)
         {
             int temp = array[a];
             array[a] = array[b];
@@ -89,14 +99,14 @@ namespace Logic
         }
         #endregion
 
-        #region MergeSort Helpers (private)
+        #region MergeSort Helpers (internal)
         /// <summary>
         /// Auxiliary method for MergeSort. It divides an array.
         /// </summary>
         /// <param name="array">array of int values</param>
         /// <param name="left">the most left element in subarray</param>
         /// <param name="right">the most right element in subarray</param>
-        private static void Divide(int[] array, int left, int right)
+        internal static void Divide(int[] array, int left, int right)
         {
             if (right.CompareTo(left) == 0) return;
             int middle = left + (right - left) / 2;
@@ -112,7 +122,7 @@ namespace Logic
         /// <param name="left">the most left element in subarray</param>
         /// <param name="middle">the middle element in subarray</param>
         /// <param name="right">the most right element in subarray</param>
-        private static void Merge(int[] array, int left, int middle, int right)
+        internal static void Merge(int[] array, int left, int middle, int right)
         {
             int positionL = left;
             int positionR = middle + 1;
@@ -150,7 +160,7 @@ namespace Logic
         /// Checker for an input array.
         /// </summary>
         /// <param name="array">array of int values</param>
-        public static void ArrayChecker(int[] array)
+        internal static void ArrayChecker(int[] array)
         {
             if(array == null)
             {
